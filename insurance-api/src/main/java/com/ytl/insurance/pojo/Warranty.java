@@ -1,4 +1,4 @@
-package com.lhw.warranty.pojo;
+package com.ytl.insurance.pojo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
