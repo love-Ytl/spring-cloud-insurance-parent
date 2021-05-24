@@ -7,8 +7,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="insurance-provider-user-8001" />
         <module name="insurance-config-service-8888" />
+        <module name="insurance-config-service" />
+        <module name="insurance-provider-user-8001" />
         <module name="insurance-api" />
       </profile>
     </annotationProcessing>
