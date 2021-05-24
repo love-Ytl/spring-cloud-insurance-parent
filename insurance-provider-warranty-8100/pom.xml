@@ -15,7 +15,8 @@
         <!--web启动器-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <artifactId>spring-boot-starter-web</artifactId>23
+
         </dependency>
         <!--consul服务发现-->
         <dependency>
