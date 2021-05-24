@@ -8,4 +8,4 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/love-Ytl/insurance-yml.git
+          uri: https://gitee.com/yitielin/insurance-yml.git
