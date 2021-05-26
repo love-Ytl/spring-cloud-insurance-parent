@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -29,5 +30,8 @@ public class Warranty {
     private  double vpDollar;//新车购置价
     private  String bankName;//银行名称
     private String bankCard;//银行账号
+
+    private List<Recognizee> reco;//被保人
+    private List<Policyholder> poli;//投保人
 
 }

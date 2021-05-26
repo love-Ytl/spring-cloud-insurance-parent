@@ -1,0 +1,13 @@
+{
+  "properties": [
+    {
+      "name": "spring.cloud.consul.host.port",
+      "type": "java.lang.String",
+      "description": "Description for spring.cloud.consul.host.port."
+    },
+    {
+      "name": "spring.cloud.consul.host.discovery.service-name",
+      "type": "java.lang.String",
+      "description": "Description for spring.cloud.consul.host.discovery.service-name."
+    }
+  ] }

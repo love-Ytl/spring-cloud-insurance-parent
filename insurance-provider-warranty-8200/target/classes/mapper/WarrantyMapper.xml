@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mzx.insurance.mapper.WarrantyMapper">
+
+    <select id="SelWarranty" resultType="com.ytl.insurance.pojo.Warranty" >
+        select * from warranty_insurance as a,recognizee_insurance as b,policyholder_insurance as c
+        where a.policyholderId = c.policyholderId and a.recognizeeId = b.recognizeeId
+    </select>
+
+    <select id="SelSingle" resultType="com.ytl.insurance.pojo.Warranty" parameterType="String">
+        select * from warranty_insurance where warrantyId = #{id}
+    </select>
+
+    <update id="UpWarranty" parameterType="com.ytl.insurance.pojo.Warranty" >
+        update warranty_insurance set policyholderId
+    </update>
+</mapper>

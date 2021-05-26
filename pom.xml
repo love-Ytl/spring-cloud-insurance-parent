@@ -12,6 +12,7 @@
         <module>insurance-provider-user-8001</module>
         <module>insurance-api</module>
         <module>insurance-config-service-8888</module>
+        <module>insurance-provider-warranty-8200</module>
     </modules>
 
     <dependencyManagement>

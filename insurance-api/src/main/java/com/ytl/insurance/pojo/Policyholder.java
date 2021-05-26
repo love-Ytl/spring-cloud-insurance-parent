@@ -1,9 +1,7 @@
 package com.ytl.insurance.pojo;
 
-/*
- * 投保人实体类
- */
 
+import io.swagger.annotations.ApiModel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,6 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@ApiModel("投保人实体类")
 public class Policyholder {
 
     private int policyholderId;
