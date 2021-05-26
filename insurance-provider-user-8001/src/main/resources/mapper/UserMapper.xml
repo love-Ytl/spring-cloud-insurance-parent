@@ -7,4 +7,10 @@
         insert into user_insurance
         values (default,#{userAccount},#{userPwd},#{userName},#{roleId},#{jobId},#{userCreationTime},null)
     </insert>
+
+
+    <select id="queryUser" parameterType="User" resultType="User">
+        select * from user_insurance
+        where userAccount = #{userAccount} and userPwd = #{userPwd}
+    </select>
 </mapper>

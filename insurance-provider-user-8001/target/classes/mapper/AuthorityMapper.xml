@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ytl.insurance.mapper.AuthorityMapper">
+    <select id="getAuthoritesFather" resultType="Authority" parameterType="int">
+        select authority_insurance.* from authority_insurance ,auth_role_insurance
+        where authority_insurance.authorityId = auth_role_insurance.authorityId
+        AND auth_role_insurance.roleId = #{roleId}
+        AND authority_insurance.authorityFather=0
+    </select>
+
+    <select id="getAuthorityByFather" resultType="Authority" parameterType="int">
+        select authority_insurance.* from authority_insurance ,auth_role_insurance
+        where authority_insurance.authorityId = auth_role_insurance.authorityId
+        AND auth_role_insurance.roleId = #{roleId}
+        AND authority_insurance.authorityFather=#{authorityId}
+    </select>
+
+    <select id="getAuthority" resultType="Authority" parameterType="int">
+         SELECT * FROM authority_insurance WHERE authorityId = #{authorityId};
+    </select>
+</mapper>
