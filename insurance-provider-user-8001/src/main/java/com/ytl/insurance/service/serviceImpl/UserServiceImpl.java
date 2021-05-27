@@ -5,15 +5,16 @@ import com.ytl.insurance.mapper.UserMapper;
 import com.ytl.insurance.pojo.Authority;
 import com.ytl.insurance.pojo.User;
 import com.ytl.insurance.service.UserService;
+import com.ytl.insurance.utils.JsonUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -25,6 +26,8 @@ public class UserServiceImpl implements UserService {
 
     @Resource
     private  AuthorityMapper authorityMapper;
+    @Autowired
+    private RedisTemplate<String,Object> redisTemplate;
     @Override
     public String addUser(User user) {
         LocalDateTime now = LocalDateTime.now();
@@ -43,6 +46,12 @@ public class UserServiceImpl implements UserService {
         User userOut = mapper.queryUser(userTo);
         if(userOut != null){
             userOut.setAuthorities(getAuthority(userOut.getRoleId()));
+            //将登陆的用户存入到redis中
+            Map<String,Object> map=new HashMap<>();
+            map.put(userOut.getUserAccount(),JsonUtils.objectToJson(userOut));
+//            map.put("admin","user");
+            System.out.println(JsonUtils.objectToJson(userOut));
+            redisTemplate.opsForHash().putAll("user",map);
             return userOut;
         }
         return null;
@@ -59,6 +68,14 @@ public class UserServiceImpl implements UserService {
             authority.setChildren(authorityList);
         }
         return authorities;
+    }
+
+    @Override
+    public List<User> selUser() {
+        List<User> user=new ArrayList<>();
+        String user1=redisTemplate.opsForHash().values("user").toString();
+        user= JsonUtils.jsonToList(user1,User.class);
+        return user;
     }
 
 }

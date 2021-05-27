@@ -10,4 +10,6 @@ public interface UserService {
 
     public User queryUser(String account,String pwd);
     List<Authority> getAuthority(int roleId);
+
+    List<User> selUser();
 }
