@@ -33,17 +33,8 @@ public class UserController {
      * 登录成功所获取用户
      */
     @GetMapping("/selUser")
-    public User selUser(HttpSession session){
-        User user =(User) session.getAttribute("user");  //取出存在session中的数据
-        if(user==null){
-            return null;
-        }
-        return user;
+    public List<User>  selUser(){
+        return userService.selUser();
     }
 
-
-    @GetMapping("/getAuth")
-    public List<Authority> getAuth(int roleId){
-        return userService.getAuthority(roleId);
-    }
 }

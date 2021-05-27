@@ -2,13 +2,10 @@ package com.ytl.insurance.controller;
 
 import com.ytl.insurance.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/login")
@@ -41,7 +38,7 @@ public class UserController {
      * @return  返回已经登录的用户信息
      */
     @GetMapping("/selUser")
-    public User getLoginUser(){
-        return restTemplate.getForObject(URL_PREFIX+"/user/selUser",User.class);
+    public List<User> getLoginUser(){
+        return  restTemplate.getForObject(URL_PREFIX+"/user/selUser",List.class);
     }
 }

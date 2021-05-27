@@ -9,7 +9,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>insurance-provider-user-8001</artifactId>
+    <artifactId>insurance-provider-warranty-8100</artifactId>
+
 
     <dependencies>
         <!--web启动器-->
@@ -99,6 +100,5 @@
             <scope>compile</scope>
         </dependency>
     </dependencies>
-
 
 </project>
