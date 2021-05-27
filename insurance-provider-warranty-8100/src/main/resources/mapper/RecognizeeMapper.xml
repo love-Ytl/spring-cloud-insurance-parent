@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ytl.insurance.mapper.RecognizeeMapper">
+    <insert id="addRecognizee" parameterType="Recognizee">
+        INSERT INTO recognizee_insurance(recognizeeName,paper,paperNumber,phone,address,bank,bankAccount,driverId)
+        VALUES (#{recognizeeName},#{paper},#{paperNumber},#{phone},#{address},#{bank},#{bankAccount},#{driverId})
+    </insert>
+
+    <delete id="delRecognizee" parameterType="int">
+        delete from recognizee_insurance where recognizeeId = #{recognizeeId}
+    </delete>
+
+    <update id="updateRecognizee" parameterType="Recognizee">
+         UPDATE recognizee_insurance
+         SET recognizeeName = #{recognizeeName} , paperNumber = #{paperNumber} , phone = #{phone} , address = #{address},bank = #{bank}, bankAccount= #{bankAccount}, driverId= #{driverId}
+         WHERE recognizeeId = #{recognizeeId}
+    </update>
+
+    <select id="getRecognizee" resultType="Recognizee">
+        select *
+        from recognizee_insurance
+    </select>
+</mapper>

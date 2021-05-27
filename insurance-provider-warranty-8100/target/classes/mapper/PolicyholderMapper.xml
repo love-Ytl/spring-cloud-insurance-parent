@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ytl.insurance.mapper.PolicyholderMapper">
+
+    <insert id="addPolicyholder" parameterType="Policyholder">
+        INSERT INTO policyholder_insurance(policyholderName,paperId,paperNumber,phone,address)
+        VALUES(#{policyholderName},#{paperId},#{paperNumber},#{phone},#{address})
+    </insert>
+
+    <delete id="delPolicyholder" parameterType="int">
+        delete from policyholder_insurance where policyholderId = #{policyholderId}
+    </delete>
+
+    <update id="updatePolicyholder" parameterType="Policyholder">
+        UPDATE policyholder_insurance
+        SET policyholderName = #{policyholderName}, paperNumber = #{paperNumber},phone = #{phone}, address = #{address}
+        WHERE policyholderId = #{policyholderId}
+    </update>
+
+    <select id="getPolicyholder" resultType="Policyholder">
+        select *
+        from policyholder_insurance
+    </select>
+</mapper>

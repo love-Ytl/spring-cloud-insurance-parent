@@ -12,6 +12,7 @@
         <module name="insurance-provider-user-8001" />
         <module name="insurance-provider-warranty-8100" />
         <module name="insurance-config-service-8888" />
+        <module name="insurance-consumer-warranty-9100" />
         <module name="insurance-config-service" />
       </profile>
     </annotationProcessing>
