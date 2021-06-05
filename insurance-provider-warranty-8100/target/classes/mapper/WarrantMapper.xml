@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ytl.insurance.mapper.WarrantyMapper">
+    <insert id="addWarranty" parameterType="Warranty">
+         INSERT INTO warranty_insurance
+         VALUES(#{warrantyId},#{policyholderId},#{recognizeeId},#{insuranceBeginTime},#{insuranceEndTime},
+         #{insureMoney},#{warrantyTypeId},#{warrantyState},#{premiumMoney},#{vehicleName},#{vehicleColor},
+         #{nature},#{sailNumber},#{carOwnerName},#{vpDollar},#{bankName},#{bankCard}
+         )
+    </insert>
+
+
+    <select id="getWarranty" resultType="Warranty">
+        select * from warranty_insurance
+    </select>
+</mapper>
