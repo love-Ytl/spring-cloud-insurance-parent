@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mzx.insurance.mapper.DangerMapper">
+
+    <select id="SelDanger" resultType="com.ytl.insurance.pojo.Danger">
+        select * from case_report_insurance
+    </select>
+
+    <insert id="addDanger" parameterType="com.ytl.insurance.pojo.Danger">
+        insert into case_report_insurance
+        values(#{caseReportId},#{province},#{city},#{county},#{fullAddress},#{warrantyId},#{dangerPass},#{dangerCause},#{driver},#{driverTel},#{reportPerson},#{reportPersonTel},#{caseReportTime})
+    </insert>
+
+    <insert id="addclaim" parameterType="com.ytl.insurance.pojo.Claim">
+        insert into claim_main_insurance values(#{claimMainId},#{caseReportId},#{warrantyId},#{filingTime},#{closeCaseTime},1)
+    </insert>
+
+    <insert id="addWorkflow" parameterType="com.ytl.insurance.pojo.Workflow">
+        insert into Workflow
+        values(#{workflowId},#{workflowPId},#{workflowName},#{claimMainId},#{assignedName},#{createTime},#{receiveTime},#{submitTime},#{transmitState},#{jobState},#{flowState})
+    </insert>
+</mapper>

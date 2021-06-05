@@ -16,4 +16,6 @@ public interface WarrantyMapper {
 
     //查询单个保单
     public Warranty SelSingle(String id);
+
+
 }
